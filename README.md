@@ -3,12 +3,10 @@
 Next.js (App Router) + Tailwind CSS — лендинг с CTA в Telegram, лид-магнитом и интеграцией Google Sheets.
 
 ## Структура проекта
-- `docs/plan.md` — пошаговый план и дерево файлов.
 - `app/page.tsx` — главная страница и композиция секций.
-- `app/components/*` — UI-компоненты (Hero, AuthorCard, BenefitsList, LeadMagnet и др.).
+- `app/components/CTAButton.tsx` — универсальная кнопка CTA с UTM и аналитикой.
 - `app/api/lead/route.ts` — serverless-функция для отправки лидов в Google Sheets.
 - `content/site-config.ts` — шаблон контента с env-переменными.
-- `content/templates.md` — текстовые подсказки (CTA, буллеты).
 - `public/privacy.html` — политика конфиденциальности.
 - `env.example` — список переменных окружения.
 
@@ -22,7 +20,7 @@ npm run dev
 
 ## Настройка данных
 1. Скопируйте `env.example` → `.env.local` и заполните значениями.
-2. При необходимости измените тексты/буллеты в `content/site-config.ts` или `content/templates.md`.
+2. При необходимости измените тексты/буллеты в `content/site-config.ts`.
 3. Замените фото автора (env `NEXT_PUBLIC_AUTHOR_PHOTO`) и ссылки на Telegram.
 4. В футере и политике конфиденциальности обновите email/ссылки.
 
@@ -55,7 +53,7 @@ GOOGLE_SHEETS_ID=1AbC...
 2. В GA настроите события `click_telegram` и `lead_submitted` (Конфигурация → События → Создать).
 3. Для конверсий отметьте нужные события как целевые.
 
-> Компоненты `CTAButton` и `LeadMagnet` автоматически проставляют `data-analytics-event` атрибуты, их можно использовать в GTM/YM.
+> Кнопка `CTAButton` автоматически проставляет `data-analytics-event` атрибуты, их можно использовать в GTM/YM.
 
 ## Деплой на Vercel
 1. Импортируйте репозиторий в Vercel.
