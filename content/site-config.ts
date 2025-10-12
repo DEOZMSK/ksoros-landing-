@@ -17,6 +17,7 @@ export interface SiteConfig {
   flow: {
     title: string;
     description: string;
+    steps?: string[];
     ctaLabel: string;
     hint: string;
   };
@@ -40,7 +41,7 @@ export const siteConfig: SiteConfig = {
     // Маленькая строка над заголовком
     eyebrow:
       process.env.NEXT_PUBLIC_HERO_EYEBROW ??
-      "mr.Kcopoc · AI-менеджер консультаций",
+      "mr.Kcopoc · Digital AI-менеджер",
     // Главный заголовок первого экрана
     headline:
       process.env.NEXT_PUBLIC_HERO_HEADLINE ??
@@ -54,7 +55,7 @@ export const siteConfig: SiteConfig = {
     // Короткое пояснение под кнопками
     note:
       process.env.NEXT_PUBLIC_HERO_NOTE ??
-      "Первым отвечает AI: он задаст пару вопросов, мгновенно соберёт вводные и подскажет, когда подключусь я лично.",
+      "",
   },
   features: [
     // Карточки с ключевыми вопросами/обещаниями результата
@@ -71,7 +72,12 @@ export const siteConfig: SiteConfig = {
     // Подзаголовок/описание перед кнопкой
     description:
       process.env.NEXT_PUBLIC_FLOW_DESCRIPTION ??
-      "1) Ты пишешь любое сообщение — хоть «привет». 2) AI задаёт пару точных вопросов, фиксирует цель и прикидывает формат взаимодействия. 3) Когда контекст собран, он предлагает подходящий тариф, выдаёт ссылку на оплату или предупреждает, когда я подключусь лично.",
+      "",
+    steps: [
+      "Ты пишешь любое сообщение — хоть «привет».",
+      "AI задаёт пару точных вопросов, фиксирует цель и прикидывает формат взаимодействия.",
+      "Когда контекст собран, он предлагает мои бесплатные/платные ресурсы, и остаётся на связи по меня нет.",
+    ],
     // Текст кнопки в нижнем блоке
     ctaLabel: process.env.NEXT_PUBLIC_FLOW_CTA_LABEL ?? "Стартовать диалог с AI",
     // Небольшой хинт под кнопкой

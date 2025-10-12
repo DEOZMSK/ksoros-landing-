@@ -67,7 +67,9 @@ export default function HomePage() {
             </CTAButton>
           </div>
 
-          <p className="text-sm text-white/60 sm:max-w-md">{hero.note}</p>
+          {hero.note && (
+            <p className="text-sm text-white/60 sm:max-w-md">{hero.note}</p>
+          )}
         </header>
 
         <section className="space-y-6">
@@ -102,9 +104,23 @@ export default function HomePage() {
             <h2 className="text-3xl font-semibold leading-snug text-white md:text-[2.2rem]">
               {flow.title}
             </h2>
-            <p className="max-w-2xl text-base text-white/75 md:text-lg">
-              {flow.description}
-            </p>
+            {flow.description && (
+              <p className="max-w-2xl text-base text-white/75 md:text-lg">
+                {flow.description}
+              </p>
+            )}
+            {flow.steps && flow.steps.length > 0 && (
+              <ol className="space-y-4">
+                {flow.steps.map((step, index) => (
+                  <li key={step} className="flex items-start gap-4">
+                    <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/5 text-base font-medium text-white/80">
+                      {index + 1}
+                    </span>
+                    <p className="text-base text-white/75 md:text-lg">{step}</p>
+                  </li>
+                ))}
+              </ol>
+            )}
             <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center">
               <CTAButton href={telegramLink} variant="glow" className="px-8 py-3.5 text-lg">
                 {flow.ctaLabel}
