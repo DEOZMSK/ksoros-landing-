@@ -32,7 +32,7 @@ export const siteConfig: SiteConfig = {
     // Метаданные страницы (заголовок вкладки и description в поиске)
     title:
       process.env.NEXT_PUBLIC_SITE_TITLE ??
-      "Za7You — AI и ведическая аналитика внутреннего кода",
+      "mr.Kcopoc — AI и ведическая аналитика внутреннего кода",
     description:
       process.env.NEXT_PUBLIC_SITE_DESCRIPTION ??
       "Интеллектуальный инструмент самонаблюдения: AI + ведическая философия показывают твой внутренний код без иллюзий."
@@ -41,7 +41,7 @@ export const siteConfig: SiteConfig = {
     // Маленькая строка над заголовком
     eyebrow:
       process.env.NEXT_PUBLIC_HERO_EYEBROW ??
-      "Za7You · честный навигатор самонаблюдения",
+      "mr.Kcopoc · честный навигатор самонаблюдения",
     // Главный заголовок первого экрана
     headline:
       process.env.NEXT_PUBLIC_HERO_HEADLINE ??
@@ -77,7 +77,7 @@ export const siteConfig: SiteConfig = {
     // Подзаголовок/описание перед кнопкой
     description:
       process.env.NEXT_PUBLIC_FLOW_DESCRIPTION ??
-      "Za7You собирает твои ответы, дополняет их AI-ракурсами и показывает карту паттернов. Без оценок. Без давления.",
+      "mr.Kcopoc собирает твои ответы, дополняет их AI-ракурсами и показывает карту паттернов. Без оценок. Без давления.",
     // Текст кнопки в нижнем блоке
     ctaLabel: process.env.NEXT_PUBLIC_FLOW_CTA_LABEL ?? "Увидеть свою систему",
     // Небольшой хинт под кнопкой
@@ -90,5 +90,5 @@ export const siteConfig: SiteConfig = {
     process.env.NEXT_PUBLIC_CLOSING_NOTE ??
     "Система не говорит, кем тебе быть. Она просто показывает, как работает твой код.",
   // Ссылка в Telegram с UTM-метками добавляется автоматически в CTAButton
-  telegramLink: process.env.NEXT_PUBLIC_TELEGRAM_LINK ?? "https://t.me/your_bot_or_channel"
+  telegramLink: process.env.NEXT_PUBLIC_TELEGRAM_LINK ?? "https://t.me/baphbl"
 };

@@ -8,7 +8,7 @@ export function Footer({ telegramLink, email = "hello@example.com", year = new D
   return (
     <footer className="mt-16 border-t border-outline/60 py-8 text-sm text-muted">
       <div className="mx-auto flex max-w-content flex-col gap-4 px-4 sm:flex-row sm:items-center sm:justify-between">
-        <p>© {year} Архим / mr.Kcopoc. Все права защищены.</p>
+        <p>© {year} mr.Kcopoc. Все права защищены.</p>
         <nav className="flex flex-wrap items-center gap-4">
           <a href="/privacy.html" className="hover:text-white" rel="noopener noreferrer">
             Политика конфиденциальности

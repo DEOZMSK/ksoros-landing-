@@ -12,22 +12,22 @@ const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Za7You — AI и ведическая аналитика внутреннего кода",
-    template: "%s — Za7You"
+    default: "mr.Kcopoc — AI и ведическая аналитика внутреннего кода",
+    template: "%s — mr.Kcopoc"
   },
   description:
     "Интеллектуальный инструмент самонаблюдения: AI + ведическая философия показывают твой внутренний код без иллюзий.",
   openGraph: {
-    title: "Za7You — AI и ведическая аналитика внутреннего кода",
+    title: "mr.Kcopoc — AI и ведическая аналитика внутреннего кода",
     description:
       "Интеллектуальный инструмент самонаблюдения: AI + ведическая философия показывают твой внутренний код без иллюзий.",
     url: siteUrl,
-    siteName: "Za7You",
+    siteName: "mr.Kcopoc",
     type: "website"
   },
   twitter: {
     card: "summary_large_image",
-    title: "Za7You — AI и ведическая аналитика внутреннего кода",
+    title: "mr.Kcopoc — AI и ведическая аналитика внутреннего кода",
     description:
       "Интеллектуальный инструмент самонаблюдения: AI + ведическая философия показывают твой внутренний код без иллюзий."
   }
