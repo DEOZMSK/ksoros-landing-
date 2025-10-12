@@ -1,4 +1,4 @@
-# Лендинг Архима (mr.Kcopoc)
+# Лендинг mr.Kcopoc — цифровая экосистема
 
 Next.js (App Router) + Tailwind CSS — лендинг с CTA в Telegram, лид-магнитом и интеграцией Google Sheets.
 
@@ -29,7 +29,7 @@ npm run dev
 ### Пример env
 ```env
 NEXT_PUBLIC_SITE_URL=https://your-domain.com
-NEXT_PUBLIC_TELEGRAM_LINK=https://t.me/your_bot_or_channel
+NEXT_PUBLIC_TELEGRAM_LINK=https://t.me/baphbl
 NEXT_PUBLIC_LEAD_WEBHOOK=https://your-domain.com/api/lead
 GOOGLE_SERVICE_ACCOUNT_EMAIL=service-account@project.iam.gserviceaccount.com
 GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"

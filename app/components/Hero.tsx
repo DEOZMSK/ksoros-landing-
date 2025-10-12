@@ -12,7 +12,7 @@ export function Hero({ title, subtitle, highlights, telegramLink, ctaLabel = "П
   return (
     <section className="space-y-10 rounded-3xl border border-outline/60 bg-surface/70 p-8 shadow-2xl">
       <div className="space-y-6">
-        <p className="text-xs uppercase tracking-[0.35em] text-muted">Digital-консалтинг Архима</p>
+        <p className="text-xs uppercase tracking-[0.35em] text-muted">Digital-экосистема mr.Kcopoc</p>
         <h1 className="text-3xl font-semibold leading-tight text-white sm:text-4xl">{title}</h1>
         <p className="text-lg leading-relaxed text-muted sm:text-xl">{subtitle}</p>
       </div>
