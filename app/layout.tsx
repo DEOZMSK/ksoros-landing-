@@ -1,10 +1,36 @@
 import type { Metadata } from "next";
+import Script from "next/script";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
+const inter = Inter({ subsets: ["latin", "cyrillic"], variable: "--font-inter" });
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com"; // TODO: заменить на боевой домен
+const yandexMetrikaId = process.env.NEXT_PUBLIC_YANDEX_METRIKA_ID;
+const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+
 export const metadata: Metadata = {
-  title: "Za7️⃣You — технологично-философский разбор",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "ИмяФамилия — консультации и квизы",
+    template: "%s — консультации и квизы"
+  },
   description:
-    "Za7️⃣You — пространство для тех, кто ищет структуру себя через синтез AI и ведической философии."
+    "Короткий квиз и консультации Архима: digital-стратегия, автоматизация и чат-боты. Получите план действий и переходите в Telegram.",
+  openGraph: {
+    title: "ИмяФамилия — консультации и квизы",
+    description:
+      "Короткий квиз и консультации Архима: digital-стратегия, автоматизация и чат-боты. Получите план действий и переходите в Telegram.",
+    url: siteUrl,
+    siteName: "ИмяФамилия",
+    type: "website"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ИмяФамилия — консультации и квизы",
+    description:
+      "Короткий квиз и консультации Архима: digital-стратегия, автоматизация и чат-боты. Получите план действий и переходите в Telegram."
+  }
 };
 
 export default function RootLayout({
@@ -13,8 +39,47 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ru">
-      <body>{children}</body>
+    <html lang="ru" className={inter.variable}>
+      <body className="bg-background">
+        {children}
+        {yandexMetrikaId && (
+          <Script id="yandex-metrika" strategy="afterInteractive">
+            {`
+              (function(m,e,t,r,i,k,a){
+                m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+                m[i].l=1*new Date();
+                k=e.createElement(t),a=e.getElementsByTagName(t)[0];
+                k.async=1;k.src=r;a.parentNode.insertBefore(k,a);
+              })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+              ym(${yandexMetrikaId}, "init", {
+                clickmap:true,
+                trackLinks:true,
+                accurateTrackBounce:true,
+                ecommerce:"dataLayer"
+              });
+            `}
+          </Script>
+        )}
+        {gaMeasurementId && (
+          <>
+            <Script
+              id="google-analytics"
+              strategy="afterInteractive"
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
+            />
+            <Script id="google-analytics-inline" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${gaMeasurementId}', {
+                  send_page_view: true
+                });
+              `}
+            </Script>
+          </>
+        )}
+      </body>
     </html>
   );
 }
