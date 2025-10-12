@@ -74,3 +74,4 @@ GOOGLE_SHEETS_ID=1AbC...
 - Все внешние ссылки содержат `rel="noopener noreferrer"` и автоматические UTM.
 - Макет мобильный-first, ширина контейнера ограничена `max-w-content`.
 - При необходимости расширяйте секции, создавая новые компоненты в `app/components`.
+- Заголовки используют кириллический шрифт [Manrope](https://fonts.google.com/specimen/Manrope). Чтобы заменить шрифт, откройте `app/layout.tsx` и поменяйте импорт из `next/font/google`, а затем скорректируйте переменные `--font-inter`/`--font-heading` в `app/globals.css`.

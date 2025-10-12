@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Inter } from "next/font/google";
+import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin", "cyrillic"], variable: "--font-inter" });
+const manrope = Manrope({ subsets: ["latin", "cyrillic"], variable: "--font-heading" });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com"; // TODO: заменить на боевой домен
 const yandexMetrikaId = process.env.NEXT_PUBLIC_YANDEX_METRIKA_ID;
@@ -39,7 +40,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ru" className={inter.variable}>
+    <html lang="ru" className={`${inter.variable} ${manrope.variable}`}>
       <body className="bg-background">
         {children}
         {yandexMetrikaId && (

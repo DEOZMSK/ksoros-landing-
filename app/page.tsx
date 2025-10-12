@@ -53,7 +53,7 @@ export default function HomePage() {
           </span>
 
           <div className="space-y-6">
-            <h1 className="text-4xl font-semibold leading-tight tracking-tight text-white md:text-5xl lg:text-[3.5rem] lg:leading-[1.05]">
+            <h1 className="font-semibold leading-tight tracking-tight text-white text-3xl md:text-[2.75rem] lg:text-[2.95rem] lg:leading-[1.12]">
               {hero.headline}
             </h1>
             <p className="max-w-2xl text-lg text-white/75 md:text-xl">
@@ -64,9 +64,6 @@ export default function HomePage() {
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
             <CTAButton href={telegramLink} variant="glow" className="px-8 py-3.5 text-lg shadow-[0_18px_60px_rgba(79,70,229,0.25)]">
               {hero.ctaLabel}
-            </CTAButton>
-            <CTAButton href={telegramLink} variant="secondary" className="px-8 py-3.5 text-lg text-white/80 hover:text-white">
-              {hero.secondaryCtaLabel}
             </CTAButton>
           </div>
 
