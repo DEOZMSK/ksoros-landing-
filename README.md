@@ -1,4 +1,4 @@
-# Лендинг mr.Kcopoc — цифровая экосистема
+# Лендинг mr.Kcopoc
 
 Next.js (App Router) + Tailwind CSS — лендинг с CTA в Telegram, лид-магнитом и интеграцией Google Sheets.
 
