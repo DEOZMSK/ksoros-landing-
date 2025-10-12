@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export const metadata = {
   title: "Политика конфиденциальности",
-  description: "Как экосистема mr.Kcopoc использует и хранит персональные данные посетителей."
+  description: "Как mr.Kcopoc использует и хранит персональные данные посетителей."
 };
 
 export default function PrivacyPage() {
