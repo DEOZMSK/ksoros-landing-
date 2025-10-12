@@ -8,13 +8,20 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        midnight: {
-          900: "#0b1021",
-          700: "#151a30"
+        background: "#0b0f19",
+        surface: "#11192b",
+        outline: "#1f2a40",
+        muted: "#8ea0c2",
+        accent: {
+          DEFAULT: "#4f46e5",
+          hover: "#4338ca"
         }
       },
-      backgroundImage: {
-        'orbital-gradient': "radial-gradient(circle at 20% 20%, rgba(108,99,255,0.35), transparent 55%), radial-gradient(circle at 80% 30%, rgba(34,211,238,0.25), transparent 60%), radial-gradient(circle at 50% 80%, rgba(236,72,153,0.25), transparent 60%)"
+      maxWidth: {
+        content: "64rem"
+      },
+      boxShadow: {
+        focus: "0 0 0 4px rgba(79,70,229,0.25)"
       }
     }
   },
