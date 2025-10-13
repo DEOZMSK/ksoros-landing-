@@ -29,7 +29,7 @@ export default function PrivacyPage() {
         <ul className="list-disc space-y-2 pl-6">
           <li>Подготовка консультаций и персональных предложений.</li>
           <li>Отправка лид-магнитов по email и в Telegram-бота.</li>
-          <li>Сегментация и аналитика в Google Sheets, GA и Yandex Metrika.</li>
+          <li>Сегментация и аналитика во внутренних отчётах и Google Sheets.</li>
         </ul>
       </section>
       <section className="space-y-4 rounded-3xl border border-outline/60 bg-surface/60 p-6 shadow-lg">
