@@ -17,8 +17,24 @@ export const metadata: Metadata = {
   }
 };
 
+const createTelegramLinkWithText = (baseLink: string, text: string) => {
+  try {
+    const url = new URL(baseLink);
+    url.searchParams.set("text", text);
+    return url.toString();
+  } catch (error) {
+    const separator = baseLink.includes("?") ? "&" : "?";
+    return `${baseLink}${separator}text=${encodeURIComponent(text)}`;
+  }
+};
+
 export default function HomePage() {
   const { hero, features, flow, closingNote, telegramLink } = siteConfig;
+  const heroTelegramLink = createTelegramLinkWithText(telegramLink, "привет!");
+  const flowTelegramLink = createTelegramLinkWithText(
+    telegramLink,
+    "привет, расскажи подробнее, что ты предлагаешь?"
+  );
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#05070f] text-white">
@@ -62,7 +78,11 @@ export default function HomePage() {
           </div>
 
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-            <CTAButton href={telegramLink} variant="glow" className="px-8 py-3.5 text-lg shadow-[0_18px_60px_rgba(79,70,229,0.25)]">
+            <CTAButton
+              href={heroTelegramLink}
+              variant="glow"
+              className="px-8 py-3.5 text-lg shadow-[0_18px_60px_rgba(79,70,229,0.25)]"
+            >
               {hero.ctaLabel}
             </CTAButton>
           </div>
@@ -122,7 +142,7 @@ export default function HomePage() {
               </ol>
             )}
             <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center">
-              <CTAButton href={telegramLink} variant="glow" className="px-8 py-3.5 text-lg">
+              <CTAButton href={flowTelegramLink} variant="glow" className="px-8 py-3.5 text-lg">
                 {flow.ctaLabel}
               </CTAButton>
               <span className="text-sm text-white/60">{flow.hint}</span>
