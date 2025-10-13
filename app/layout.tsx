@@ -15,7 +15,7 @@ const unbounded = Unbounded({
   variable: "--font-heading"
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com"; // TODO: заменить на боевой домен
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
