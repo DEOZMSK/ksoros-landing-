@@ -29,7 +29,7 @@ const createTelegramLinkWithText = (baseLink: string, text: string) => {
 };
 
 export default function HomePage() {
-  const { hero, features, flow, closingNote, telegramLink } = siteConfig;
+  const { hero, features, chatPreview, flow, closingNote, telegramLink } = siteConfig;
   const heroTelegramLink = createTelegramLinkWithText(telegramLink, "привет!");
   const flowTelegramLink = createTelegramLinkWithText(
     telegramLink,
@@ -37,7 +37,7 @@ export default function HomePage() {
   );
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#05070f] text-white">
+    <main className="relative min-h-screen overflow-hidden bg-gradient-to-br from-[#040414] via-[#120f24] to-[#241538] text-white">
       {/* Фон с цифровой глубиной */}
       <div className="pointer-events-none absolute inset-0">
         <div
@@ -45,34 +45,50 @@ export default function HomePage() {
           className="absolute inset-0 -z-20"
           style={{
             backgroundImage:
-              "radial-gradient(circle at 20% 20%, rgba(99,102,241,0.18), transparent 58%), radial-gradient(circle at 80% 25%, rgba(236,72,153,0.16), transparent 62%), radial-gradient(circle at 50% 80%, rgba(56,189,248,0.16), transparent 60%)"
+              "radial-gradient(circle at 18% 22%, rgba(244,114,182,0.28), transparent 60%), radial-gradient(circle at 78% 18%, rgba(34,211,238,0.2), transparent 64%), radial-gradient(circle at 48% 80%, rgba(192,132,252,0.22), transparent 66%)"
           }}
         />
         <div
           aria-hidden
-          className="absolute inset-0 -z-10 opacity-[0.15]"
+          className="absolute inset-0 -z-10 opacity-[0.14]"
           style={{
             backgroundImage:
-              "linear-gradient(0deg, rgba(148,163,184,0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,0.12) 1px, transparent 1px)",
-            backgroundSize: "72px 72px"
+              "linear-gradient(0deg, rgba(255,255,255,0.09) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.09) 1px, transparent 1px)",
+            backgroundSize: "80px 80px"
           }}
         />
-        <div className="absolute -left-20 top-12 h-72 w-72 rounded-full bg-[radial-gradient(circle_at_center,rgba(129,140,248,0.3),transparent_65%)] blur-3xl animate-float" />
-        <div className="absolute bottom-[-6rem] right-[-4rem] h-80 w-80 rounded-full bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.25),transparent_70%)] blur-3xl animate-soft-pulse" />
-        <div className="absolute left-1/2 top-24 h-64 w-64 -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(236,72,153,0.28),transparent_70%)] blur-[120px] animate-soft-pulse" />
+        <div
+          aria-hidden
+          className="absolute inset-0 -z-10"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 12% 78%, rgba(236,72,153,0.18) 0, rgba(236,72,153,0) 58%), radial-gradient(circle at 88% 82%, rgba(14,165,233,0.16) 0, rgba(14,165,233,0) 60%)"
+          }}
+        />
+        <div className="absolute -left-24 top-16 h-80 w-80 rounded-full bg-[radial-gradient(circle_at_center,rgba(249,115,22,0.22),transparent_62%)] blur-3xl animate-float" />
+        <div className="absolute bottom-[-6rem] right-[-4rem] h-80 w-80 rounded-full bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.24),transparent_68%)] blur-3xl animate-soft-pulse" />
+        <div className="absolute left-1/2 top-24 h-64 w-64 -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(244,114,182,0.35),transparent_70%)] blur-[120px] animate-soft-pulse" />
+        <div
+          aria-hidden
+          className="absolute inset-0 -z-10 opacity-60"
+          style={{
+            backgroundImage: "radial-gradient(rgba(255,255,255,0.18) 1px, transparent 1px)",
+            backgroundSize: "120px 120px"
+          }}
+        />
       </div>
 
       <div className="relative z-10 mx-auto flex min-h-screen max-w-5xl flex-col justify-between gap-12 px-6 py-16 sm:px-10 lg:px-12">
         <header className="space-y-8">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs uppercase tracking-[0.3em] text-white/70">
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1 text-xs uppercase tracking-[0.32em] text-white/80">
             {hero.eyebrow}
           </span>
 
           <div className="space-y-6">
-            <h1 className="font-semibold leading-tight tracking-tight text-white text-3xl md:text-[2.75rem] lg:text-[2.95rem] lg:leading-[1.12]">
+            <h1 className="font-semibold leading-tight tracking-tight text-white text-3xl md:text-[2.85rem] lg:text-[3rem] lg:leading-[1.1]">
               {hero.headline}
             </h1>
-            <p className="max-w-2xl text-lg text-white/75 md:text-xl">
+            <p className="max-w-2xl text-lg text-white/80 md:text-xl">
               {hero.subheadline}
             </p>
           </div>
@@ -81,51 +97,84 @@ export default function HomePage() {
             <CTAButton
               href={heroTelegramLink}
               variant="glow"
-              className="px-8 py-3.5 text-lg shadow-[0_18px_60px_rgba(79,70,229,0.25)]"
+              className="px-8 py-3.5 text-lg shadow-[0_22px_70px_rgba(236,72,153,0.32)]"
             >
               {hero.ctaLabel}
             </CTAButton>
           </div>
 
           {hero.note && (
-            <p className="text-sm text-white/60 sm:max-w-md">{hero.note}</p>
+            <p className="text-sm text-white/70 sm:max-w-md">{hero.note}</p>
           )}
         </header>
 
-        <section className="space-y-6">
-          <div className="grid gap-4 sm:grid-cols-2">
-            {features.map((feature) => (
-              <article
-                key={feature.title}
-                className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-5 backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/10"
-              >
-                <div className="absolute inset-0 -z-10 opacity-0 transition duration-300 group-hover:opacity-100" aria-hidden>
-                  <div className="h-full w-full bg-[radial-gradient(circle_at_top,rgba(129,140,248,0.25),transparent_70%)] animate-soft-pulse" />
+        <section className="space-y-8">
+          <div className="grid gap-5 lg:grid-cols-[minmax(0,2.2fr)_minmax(0,1fr)]">
+            <div className="grid gap-4 sm:grid-cols-2">
+              {features.map((feature) => (
+                <article
+                  key={feature.title}
+                  className="group relative flex h-full flex-col gap-3 overflow-hidden rounded-3xl border border-white/15 bg-white/10 p-5 backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-white/30 hover:bg-white/15"
+                >
+                  <div className="absolute inset-0 -z-10 opacity-0 transition duration-300 group-hover:opacity-100" aria-hidden>
+                    <div className="h-full w-full bg-[radial-gradient(circle_at_top,rgba(244,114,182,0.32),transparent_70%)] animate-soft-pulse" />
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-2xl md:text-3xl">{feature.icon}</span>
+                    <h2 className="text-lg font-semibold leading-snug text-white md:text-xl">
+                      {feature.title}
+                    </h2>
+                  </div>
+                  <p className="text-sm text-white/75 md:text-base">{feature.description}</p>
+                </article>
+              ))}
+            </div>
+            <aside className="relative overflow-hidden rounded-3xl border border-white/15 bg-white/10 p-6 backdrop-blur-xl">
+              <div className="pointer-events-none absolute inset-0 opacity-80" aria-hidden>
+                <div className="absolute -top-24 right-0 h-44 w-44 rounded-full bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.42),transparent_68%)] blur-3xl" />
+                <div className="absolute bottom-[-4rem] left-[-3rem] h-56 w-56 rounded-full bg-[radial-gradient(circle_at_center,rgba(244,114,182,0.38),transparent_72%)] blur-3xl" />
+              </div>
+              <div className="relative z-10 flex h-full flex-col gap-4">
+                <div className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.24em] text-white/75">
+                  <span className="inline-block h-1.5 w-1.5 rounded-full bg-rose-200" />
+                  {chatPreview.title}
                 </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-2xl md:text-3xl">{feature.icon}</span>
-                  <h2 className="text-lg font-medium leading-snug text-white md:text-xl">
-                    {feature.title}
-                  </h2>
+                <div className="flex flex-1 flex-col gap-3 text-sm">
+                  {chatPreview.messages.map((message, index) => (
+                    <div
+                      key={`${message.sender}-${index}`}
+                      className={`flex ${message.sender === "user" ? "justify-end" : "justify-start"}`}
+                    >
+                      <div
+                        className={`max-w-[17rem] rounded-2xl border px-4 py-3 shadow-[0_14px_38px_rgba(17,6,31,0.32)] backdrop-blur-sm ${
+                          message.sender === "user"
+                            ? "border-white/35 bg-rose-200/30 text-white"
+                            : "border-white/65 bg-white/95 text-[#351027]"
+                        }`}
+                      >
+                        {message.text}
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              </article>
-            ))}
+              </div>
+            </aside>
           </div>
         </section>
 
-        <section className="relative overflow-hidden rounded-[32px] border border-white/10 bg-white/5 px-6 py-10 shadow-[0_20px_60px_rgba(15,23,42,0.55)] backdrop-blur-xl sm:px-10">
+        <section className="relative overflow-hidden rounded-[32px] border border-white/15 bg-gradient-to-br from-white/20 via-white/10 to-white/5 px-6 py-10 shadow-[0_28px_78px_rgba(18,8,40,0.6)] backdrop-blur-2xl sm:px-10">
           <div className="pointer-events-none absolute inset-0">
-            <div className="absolute -top-32 right-6 h-48 w-48 rounded-full bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.45),transparent_65%)] opacity-70 blur-3xl animate-soft-pulse" />
-            <div className="absolute bottom-[-3rem] left-1/2 h-56 w-56 -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.35),transparent_70%)] opacity-60 blur-3xl animate-float" />
-            <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(255,255,255,0.08),transparent_60%)] opacity-40" />
+            <div className="absolute -top-32 right-6 h-52 w-52 rounded-full bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.45),transparent_60%)] opacity-70 blur-3xl animate-soft-pulse" />
+            <div className="absolute bottom-[-3rem] left-1/2 h-60 w-60 -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(244,114,182,0.4),transparent_68%)] opacity-65 blur-3xl animate-float" />
+            <div className="absolute inset-0 bg-[linear-gradient(130deg,rgba(255,255,255,0.1),transparent_60%)] opacity-45" />
           </div>
 
           <div className="relative z-10 space-y-6">
-            <h2 className="text-3xl font-semibold leading-snug text-white md:text-[2.2rem]">
+            <h2 className="text-3xl font-semibold leading-snug text-white md:text-[2.25rem]">
               {flow.title}
             </h2>
             {flow.description && (
-              <p className="max-w-2xl text-base text-white/75 md:text-lg">
+              <p className="max-w-2xl text-base text-white/80 md:text-lg">
                 {flow.description}
               </p>
             )}
@@ -133,10 +182,10 @@ export default function HomePage() {
               <ol className="space-y-4">
                 {flow.steps.map((step, index) => (
                   <li key={step} className="flex items-start gap-4">
-                    <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/5 text-base font-medium text-white/80">
+                    <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10 text-base font-medium text-white/85">
                       {index + 1}
                     </span>
-                    <p className="text-base text-white/75 md:text-lg">{step}</p>
+                    <p className="text-base text-white/80 md:text-lg">{step}</p>
                   </li>
                 ))}
               </ol>
@@ -145,12 +194,12 @@ export default function HomePage() {
               <CTAButton href={flowTelegramLink} variant="glow" className="px-8 py-3.5 text-lg">
                 {flow.ctaLabel}
               </CTAButton>
-              <span className="text-sm text-white/60">{flow.hint}</span>
+              <span className="text-sm text-white/75">{flow.hint}</span>
             </div>
           </div>
         </section>
 
-        <footer className="border-t border-white/10 pt-6 text-center text-sm text-white/50">
+        <footer className="border-t border-white/15 pt-6 text-center text-sm text-white/70">
           {closingNote}
         </footer>
       </div>

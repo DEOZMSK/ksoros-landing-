@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
-import { Onest, Unbounded } from "next/font/google";
+import { Plus_Jakarta_Sans, Yeseva_One } from "next/font/google";
 import "./globals.css";
 
-const onest = Onest({
-  subsets: ["latin", "cyrillic"],
-  weight: ["300", "400", "500", "600", "700"],
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin", "cyrillic-ext"],
+  weight: ["300", "400", "500", "600", "700", "800"],
   display: "swap",
-  variable: "--font-inter"
+  variable: "--font-body"
 });
-const unbounded = Unbounded({
-  subsets: ["latin", "cyrillic"],
-  weight: ["400", "500", "600", "700"],
+
+const yesevaOne = Yeseva_One({
+  subsets: ["latin", "cyrillic-ext"],
+  weight: "400",
+  style: ["normal"],
   display: "swap",
   variable: "--font-heading"
 });
@@ -20,24 +22,24 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "mr.Kcopoc — AI и ведическая аналитика внутреннего кода",
-    template: "%s — mr.Kcopoc"
+    default: "Астролог Артём Ксорос — тёплый диалог начинается с «привет»",
+    template: "%s — Артём Ксорос"
   },
   description:
-    "Интеллектуальный инструмент самонаблюдения: AI + ведическая философия показывают твой внутренний код без иллюзий.",
+    "Напиши «привет» в Telegram — мягкий помощник Артёма Ксороса встретит тебя и пригласит к живой консультации, когда тебе захочется услышать его лично.",
   openGraph: {
-    title: "mr.Kcopoc — AI и ведическая аналитика внутреннего кода",
+    title: "Астролог Артём Ксорос — тёплый диалог начинается с «привет»",
     description:
-      "Интеллектуальный инструмент самонаблюдения: AI + ведическая философия показывают твой внутренний код без иллюзий.",
+      "Напиши «привет» в Telegram — мягкий помощник Артёма Ксороса встретит тебя и пригласит к живой консультации, когда тебе захочется услышать его лично.",
     url: siteUrl,
-    siteName: "mr.Kcopoc",
+    siteName: "Артём Ксорос",
     type: "website"
   },
   twitter: {
     card: "summary_large_image",
-    title: "mr.Kcopoc — AI и ведическая аналитика внутреннего кода",
+    title: "Астролог Артём Ксорос — тёплый диалог начинается с «привет»",
     description:
-      "Интеллектуальный инструмент самонаблюдения: AI + ведическая философия показывают твой внутренний код без иллюзий."
+      "Напиши «привет» в Telegram — мягкий помощник Артёма Ксороса встретит тебя и пригласит к живой консультации, когда тебе захочется услышать его лично."
   }
 };
 
@@ -47,7 +49,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ru" className={`${onest.variable} ${unbounded.variable}`}>
+    <html lang="ru" className={`${plusJakartaSans.variable} ${yesevaOne.variable}`}>
       <body className="bg-background">
         {children}
       </body>
