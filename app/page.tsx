@@ -30,11 +30,9 @@ const createTelegramLinkWithText = (baseLink: string, text: string) => {
 
 export default function HomePage() {
   const { hero, features, chatPreview, flow, closingNote, telegramLink } = siteConfig;
-  const heroTelegramLink = createTelegramLinkWithText(telegramLink, "привет!");
-  const flowTelegramLink = createTelegramLinkWithText(
-    telegramLink,
-    "привет, расскажи подробнее, что ты предлагаешь?"
-  );
+  const defaultTelegramMessage = "Привет! А какие ресурсы у вас есть?";
+  const heroTelegramLink = createTelegramLinkWithText(telegramLink, defaultTelegramMessage);
+  const flowTelegramLink = createTelegramLinkWithText(telegramLink, defaultTelegramMessage);
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-gradient-to-br from-[#040414] via-[#120f24] to-[#241538] text-white">
