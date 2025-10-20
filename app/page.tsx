@@ -33,6 +33,7 @@ export default function HomePage() {
   const defaultTelegramMessage = "Привет! А какие ресурсы у вас есть?";
   const heroTelegramLink = createTelegramLinkWithText(telegramLink, defaultTelegramMessage);
   const flowTelegramLink = createTelegramLinkWithText(telegramLink, defaultTelegramMessage);
+  const heroSubheadline = hero.subheadline.trim();
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-gradient-to-br from-[#040414] via-[#120f24] to-[#241538] text-white">
@@ -86,9 +87,11 @@ export default function HomePage() {
             <h1 className="font-semibold leading-tight tracking-tight text-white text-3xl md:text-[2.85rem] lg:text-[3rem] lg:leading-[1.1]">
               {hero.headline}
             </h1>
-            <p className="max-w-2xl text-lg text-white/80 md:text-xl">
-              {hero.subheadline}
-            </p>
+            {heroSubheadline && (
+              <p className="max-w-2xl text-lg text-white/80 md:text-xl">
+                {heroSubheadline}
+              </p>
+            )}
           </div>
 
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center">

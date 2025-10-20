@@ -49,13 +49,9 @@ export const siteConfig: SiteConfig = {
     headline:
       process.env.NEXT_PUBLIC_HERO_HEADLINE ??
       "Не держи это в себе. Давай разберёмся спокойно.",
-    subheadline:
-      process.env.NEXT_PUBLIC_HERO_SUBHEADLINE ??
-      "Я — Артём, ведический астролог.\nРазвернём ситуацию и увидим первый шаг.",
+    subheadline: process.env.NEXT_PUBLIC_HERO_SUBHEADLINE ?? "",
     ctaLabel: process.env.NEXT_PUBLIC_HERO_CTA_LABEL ?? "Начать разговор в Telegram →",
-    note:
-      process.env.NEXT_PUBLIC_HERO_NOTE ??
-      "Сначала ответит мой помощник — задаст пару простых вопросов и соберёт контекст, чтобы тебя не грузить рутиной.",
+    note: process.env.NEXT_PUBLIC_HERO_NOTE ?? "",
   },
   features: [
     {
