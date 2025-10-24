@@ -86,14 +86,14 @@ export default function HomePage() {
             className="pointer-events-none absolute left-1/2 top-6 -z-10 h-[520px] w-[min(95vw,600px)] -translate-x-1/2 rounded-[55%] bg-[radial-gradient(circle_at_top,rgba(244,114,182,0.28),transparent_74%)] blur-3xl"
           />
 
-          <div className="pointer-events-none absolute top-0 right-[-1.5rem] -z-10 h-screen w-auto md:hidden">
+          <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-screen w-full md:hidden">
             <Image
               src="/photo.png"
               alt="Портрет Артемия Ксороса"
               priority
               width={960}
               height={1440}
-              className="h-full w-auto origin-top-right scale-[0.94] transform-gpu object-cover object-[center_top]"
+              className="h-full w-full origin-top transform-gpu object-cover object-[center_top]"
             />
           </div>
 
