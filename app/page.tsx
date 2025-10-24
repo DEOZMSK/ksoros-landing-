@@ -79,8 +79,8 @@ export default function HomePage() {
         />
       </div>
 
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col justify-between gap-16 px-6 py-16 sm:px-10 lg:px-12">
-        <header className="relative flex min-h-[660px] flex-col justify-center overflow-visible pb-24 pt-12">
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col justify-between gap-16 px-6 pt-8 pb-16 sm:px-10 sm:pt-12 lg:px-12">
+        <header className="relative flex min-h-[660px] flex-col justify-center overflow-visible pb-24 pt-6 sm:pt-12">
           <div
             aria-hidden
             className="pointer-events-none absolute left-1/2 top-6 -z-10 h-[520px] w-[min(95vw,600px)] -translate-x-1/2 rounded-[55%] bg-[radial-gradient(circle_at_top,rgba(244,114,182,0.28),transparent_74%)] blur-3xl"
