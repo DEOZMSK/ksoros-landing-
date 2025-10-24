@@ -79,15 +79,27 @@ export default function HomePage() {
         />
       </div>
 
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col justify-between gap-6 px-6 pt-2 pb-8 sm:gap-16 sm:px-10 sm:py-16 lg:px-12">
-        <header className="relative flex min-h-[520px] flex-col justify-center overflow-visible pb-6 pt-2 sm:min-h-[660px] sm:pb-24 sm:pt-12">
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col justify-between gap-6 px-6 pb-8 pt-0 sm:gap-16 sm:px-10 sm:py-16 lg:px-12">
+        <header className="relative flex min-h-screen flex-col justify-end overflow-visible pb-12 pt-24 sm:min-h-[660px] sm:justify-center sm:pb-24 sm:pt-12">
           <div
             aria-hidden
             className="pointer-events-none absolute left-1/2 top-6 -z-10 h-[520px] w-[min(95vw,600px)] -translate-x-1/2 rounded-[55%] bg-[radial-gradient(circle_at_top,rgba(244,114,182,0.28),transparent_74%)] blur-3xl"
           />
 
-          <div className="relative grid w-full items-center gap-5 sm:gap-10 lg:grid-cols-[1.02fr_1fr]">
-            <div className="order-2 flex flex-col items-center text-center sm:items-start sm:text-left lg:order-1 lg:items-start">
+          <div className="pointer-events-none absolute top-0 right-[-1.5rem] -z-10 h-screen w-auto md:hidden">
+            <Image
+              src="/photo.png"
+              alt="Портрет Артемия Ксороса"
+              priority
+              width={960}
+              height={1440}
+              className="h-full w-auto object-cover object-[top_right]"
+            />
+          </div>
+
+          <div className="relative z-10 flex w-full flex-col gap-5 sm:gap-10 md:grid md:grid-cols-[1.02fr_1fr] md:items-center">
+            <div className="relative flex flex-col items-center text-center md:items-start md:text-left">
+              <div className="pointer-events-none absolute inset-x-[-1.5rem] bottom-[-4rem] top-[-5rem] -z-10 rounded-[36px] bg-[radial-gradient(circle_at_top,rgba(10,6,28,0.72),transparent_68%)] backdrop-blur-[2px] md:hidden" aria-hidden />
               <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1 text-xs uppercase tracking-[0.32em] text-white/80">
                 {hero.eyebrow}
               </span>
@@ -118,21 +130,17 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="order-1 flex justify-center lg:order-2">
+            <div className="relative hidden justify-center md:flex">
               <div className="relative w-[min(88vw,520px)] max-w-[520px]">
-                <div className="absolute -left-6 right-6 bottom-2 h-40 rounded-full bg-[radial-gradient(circle_at_center,rgba(12,10,28,0.85),transparent_78%)] blur-3xl" aria-hidden />
-                <div className="relative mx-auto aspect-[3/4] w-full overflow-visible">
-                  <div className="absolute inset-0 rounded-[36px] border border-white/25 bg-gradient-to-br from-white/12 via-white/6 to-transparent opacity-60 mix-blend-screen" aria-hidden />
-                  <Image
-                    src="/photo.png"
-                    alt="Портрет Артемия Ксороса"
-                    fill
-                    priority
-                    sizes="(min-width: 1280px) 520px, (min-width: 768px) 460px, (min-width: 640px) 420px, 88vw"
-                    className="object-contain drop-shadow-[0_45px_95px_rgba(17,6,31,0.55)]"
-                  />
-                  <div className="absolute inset-0 rounded-[36px] bg-gradient-to-t from-[#120f24]/45 via-transparent to-transparent mix-blend-soft-light" aria-hidden />
-                </div>
+                <Image
+                  src="/photo.png"
+                  alt="Портрет Артемия Ксороса"
+                  priority
+                  width={960}
+                  height={1440}
+                  sizes="(min-width: 1280px) 520px, (min-width: 768px) 460px, (min-width: 640px) 420px, 88vw"
+                  className="w-full rounded-[36px] object-cover object-top"
+                />
               </div>
             </div>
           </div>
