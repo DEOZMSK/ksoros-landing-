@@ -80,30 +80,30 @@ export default function HomePage() {
       </div>
 
       <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col justify-between gap-16 px-6 py-16 sm:px-10 lg:px-12">
-        <header className="relative flex min-h-[660px] flex-col justify-center overflow-visible pb-24 pt-12">
+        <header className="relative flex min-h-[660px] flex-col justify-center overflow-visible pb-20 pt-10">
           <div
             aria-hidden
             className="pointer-events-none absolute left-1/2 top-6 -z-10 h-[520px] w-[min(95vw,600px)] -translate-x-1/2 rounded-[55%] bg-[radial-gradient(circle_at_top,rgba(244,114,182,0.28),transparent_74%)] blur-3xl"
           />
 
-          <div className="relative grid w-full items-center gap-10 lg:grid-cols-[1.02fr_1fr]">
+          <div className="relative grid w-full items-center gap-8 lg:grid-cols-[1.02fr_1fr]">
             <div className="order-2 flex flex-col items-center text-center sm:items-start sm:text-left lg:order-1 lg:items-start">
               <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1 text-xs uppercase tracking-[0.32em] text-white/80">
                 {hero.eyebrow}
               </span>
 
-              <div className="mt-6 max-w-xl drop-shadow-[0_12px_32px_rgba(8,6,24,0.4)]">
+              <div className="mt-4 max-w-xl drop-shadow-[0_12px_32px_rgba(8,6,24,0.4)]">
                 <h1 className="text-3xl font-semibold leading-tight tracking-tight text-white md:text-[2.85rem] lg:text-[3.15rem] lg:leading-[1.08]">
                   {hero.headline}
                 </h1>
                 {heroSubheadline && (
-                  <p className="mt-6 text-lg text-white/80 md:text-xl">
+                  <p className="mt-4 text-lg text-white/80 md:text-xl">
                     {heroSubheadline}
                   </p>
                 )}
               </div>
 
-              <div className="mt-10 flex w-full flex-col items-center gap-4 text-center sm:flex-row sm:items-center sm:justify-start sm:text-left">
+              <div className="mt-6 flex w-full flex-col items-center gap-3 text-center sm:flex-row sm:items-center sm:justify-start sm:text-left">
                 <CTAButton
                   href={heroTelegramLink}
                   variant="glow"
