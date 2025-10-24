@@ -93,14 +93,24 @@ export default function HomePage() {
             className="pointer-events-none absolute left-1/2 top-0 -z-10 flex w-screen -translate-x-1/2 justify-center md:hidden"
             style={{ height: "min(100vh, calc(100vw * 1.5))" }}
           >
-            <Image
-              src="/photo.png"
-              alt="Портрет Артемия Ксороса"
-              priority
-              width={960}
-              height={1440}
-              className="h-full w-full origin-top transform-gpu object-contain object-top"
-            />
+            <div className="relative h-full w-full">
+              <Image
+                src="/photo.png"
+                alt="Портрет Артемия Ксороса"
+                priority
+                width={960}
+                height={1440}
+                className="h-full w-full origin-top transform-gpu rounded-[40px] object-contain object-top"
+              />
+              <div
+                aria-hidden
+                className="absolute inset-0 rounded-[40px] bg-gradient-to-br from-[#f472b6]/20 via-transparent to-[#6366f1]/16 mix-blend-soft-light"
+              />
+              <div
+                aria-hidden
+                className="absolute inset-0 rounded-[40px] bg-[radial-gradient(circle_at_20%_20%,rgba(244,114,182,0.28),transparent_60%),radial-gradient(circle_at_82%_26%,rgba(59,130,246,0.18),transparent_68%)] opacity-70"
+              />
+            </div>
           </div>
 
           <div className="relative z-10 flex w-full flex-col gap-5 sm:gap-10 md:grid md:grid-cols-[1.02fr_1fr] md:items-center">
@@ -146,6 +156,14 @@ export default function HomePage() {
                   height={1440}
                   sizes="(min-width: 1280px) 520px, (min-width: 768px) 460px, (min-width: 640px) 420px, 88vw"
                   className="w-full origin-top scale-[0.97] transform-gpu rounded-[36px] object-cover object-top"
+                />
+                <div
+                  aria-hidden
+                  className="absolute inset-0 rounded-[36px] bg-gradient-to-br from-[#f472b6]/18 via-transparent to-[#6366f1]/14 mix-blend-soft-light"
+                />
+                <div
+                  aria-hidden
+                  className="absolute inset-0 rounded-[36px] bg-[radial-gradient(circle_at_18%_18%,rgba(244,114,182,0.24),transparent_62%),radial-gradient(circle_at_80%_30%,rgba(56,189,248,0.16),transparent_64%)] opacity-70"
                 />
               </div>
             </div>
