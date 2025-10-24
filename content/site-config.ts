@@ -132,24 +132,12 @@ export const siteConfig: SiteConfig = {
     ]
   },
   flow: {
-    title:
-      process.env.NEXT_PUBLIC_FLOW_TITLE ??
-      "Как продолжается наше знакомство после твоего «привет»",
-    description:
-      process.env.NEXT_PUBLIC_FLOW_DESCRIPTION ??
-      "Весь путь похож на доверительную переписку: помощник держит пространство, а я подключаюсь, когда хочется услышать меня лично.",
-    steps: [
-      "Ты пишешь «привет» или любое слово — в ответ прилетает живое приветствие и ощущение, что тебя ждали.",
-      "Мы мягко собираем, что у тебя происходит, делимся первыми подсказками и настраиваемся на твоё дыхание.",
-      "Когда чувствуешь отклик на живой разговор, я присоединяюсь и предлагаю консультацию или сопровождение.",
-    ],
+    title: process.env.NEXT_PUBLIC_FLOW_TITLE ?? "",
+    description: process.env.NEXT_PUBLIC_FLOW_DESCRIPTION ?? "",
+    steps: [] as string[],
     ctaLabel: process.env.NEXT_PUBLIC_FLOW_CTA_LABEL ?? "Написать «привет» сейчас",
-    hint:
-      process.env.NEXT_PUBLIC_FLOW_HINT ??
-      "Говори так, как тебе удобно — я рядом и всё читаю лично.",
+    hint: process.env.NEXT_PUBLIC_FLOW_HINT ?? "",
   },
-  closingNote:
-    process.env.NEXT_PUBLIC_CLOSING_NOTE ??
-    "AI помогает мне быть рядом быстрее, но каждая встреча и решение рождаются в нашем диалоге — Артём Ксорос.",
+  closingNote: process.env.NEXT_PUBLIC_CLOSING_NOTE ?? "",
   telegramLink: process.env.NEXT_PUBLIC_TELEGRAM_LINK ?? "https://t.me/baphbl",
 };

@@ -200,9 +200,11 @@ export default function HomePage() {
           </div>
 
           <div className="relative z-10 space-y-6">
-            <h2 className="text-3xl font-semibold leading-snug text-white md:text-[2.25rem]">
-              {flow.title}
-            </h2>
+            {flow.title && (
+              <h2 className="text-3xl font-semibold leading-snug text-white md:text-[2.25rem]">
+                {flow.title}
+              </h2>
+            )}
             {flow.description && (
               <p className="max-w-2xl text-base text-white/80 md:text-lg">
                 {flow.description}
@@ -224,14 +226,16 @@ export default function HomePage() {
               <CTAButton href={flowTelegramLink} variant="glow" className="px-8 py-3.5 text-lg">
                 {flow.ctaLabel}
               </CTAButton>
-              <span className="text-sm text-white/75">{flow.hint}</span>
+              {flow.hint && <span className="text-sm text-white/75">{flow.hint}</span>}
             </div>
           </div>
         </section>
 
-        <footer className="border-t border-white/15 pt-6 text-center text-sm text-white/70">
-          {closingNote}
-        </footer>
+        {closingNote && (
+          <footer className="border-t border-white/15 pt-6 text-center text-sm text-white/70">
+            {closingNote}
+          </footer>
+        )}
       </div>
     </main>
   );
