@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 
+import Image from "next/image";
+
 import { CTAButton } from "./components/CTAButton";
 import { siteConfig } from "../content/site-config";
 
@@ -77,36 +79,63 @@ export default function HomePage() {
         />
       </div>
 
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-5xl flex-col justify-between gap-12 px-6 py-16 sm:px-10 lg:px-12">
-        <header className="space-y-8">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1 text-xs uppercase tracking-[0.32em] text-white/80">
-            {hero.eyebrow}
-          </span>
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col justify-between gap-16 px-6 py-16 sm:px-10 lg:px-12">
+        <header className="relative flex min-h-[660px] flex-col justify-center overflow-visible pb-24 pt-12">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute left-1/2 top-6 -z-10 h-[520px] w-[min(95vw,600px)] -translate-x-1/2 rounded-[55%] bg-[radial-gradient(circle_at_top,rgba(244,114,182,0.28),transparent_74%)] blur-3xl"
+          />
 
-          <div className="space-y-6">
-            <h1 className="font-semibold leading-tight tracking-tight text-white text-3xl md:text-[2.85rem] lg:text-[3rem] lg:leading-[1.1]">
-              {hero.headline}
-            </h1>
-            {heroSubheadline && (
-              <p className="max-w-2xl text-lg text-white/80 md:text-xl">
-                {heroSubheadline}
-              </p>
-            )}
+          <div className="relative grid w-full items-center gap-10 lg:grid-cols-[1.02fr_1fr]">
+            <div className="order-2 flex flex-col items-center text-center sm:items-start sm:text-left lg:order-1 lg:items-start">
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1 text-xs uppercase tracking-[0.32em] text-white/80">
+                {hero.eyebrow}
+              </span>
+
+              <div className="mt-6 max-w-xl drop-shadow-[0_12px_32px_rgba(8,6,24,0.4)]">
+                <h1 className="text-3xl font-semibold leading-tight tracking-tight text-white md:text-[2.85rem] lg:text-[3.15rem] lg:leading-[1.08]">
+                  {hero.headline}
+                </h1>
+                {heroSubheadline && (
+                  <p className="mt-6 text-lg text-white/80 md:text-xl">
+                    {heroSubheadline}
+                  </p>
+                )}
+              </div>
+
+              <div className="mt-10 flex w-full flex-col items-center gap-4 text-center sm:flex-row sm:items-center sm:justify-start sm:text-left">
+                <CTAButton
+                  href={heroTelegramLink}
+                  variant="glow"
+                  className="px-8 py-3.5 text-lg shadow-[0_22px_70px_rgba(236,72,153,0.32)]"
+                >
+                  {hero.ctaLabel}
+                </CTAButton>
+
+                {hero.note && (
+                  <p className="max-w-md text-sm text-white/70 sm:text-left">{hero.note}</p>
+                )}
+              </div>
+            </div>
+
+            <div className="order-1 flex justify-center lg:order-2">
+              <div className="relative w-[min(88vw,520px)] max-w-[520px]">
+                <div className="absolute -left-6 right-6 bottom-2 h-40 rounded-full bg-[radial-gradient(circle_at_center,rgba(12,10,28,0.85),transparent_78%)] blur-3xl" aria-hidden />
+                <div className="relative mx-auto aspect-[3/4] w-full overflow-visible">
+                  <div className="absolute inset-0 rounded-[36px] border border-white/25 bg-gradient-to-br from-white/12 via-white/6 to-transparent opacity-60 mix-blend-screen" aria-hidden />
+                  <Image
+                    src="/photo.png"
+                    alt="Портрет Артемия Ксороса"
+                    fill
+                    priority
+                    sizes="(min-width: 1280px) 520px, (min-width: 768px) 460px, (min-width: 640px) 420px, 88vw"
+                    className="object-contain drop-shadow-[0_45px_95px_rgba(17,6,31,0.55)]"
+                  />
+                  <div className="absolute inset-0 rounded-[36px] bg-gradient-to-t from-[#120f24]/45 via-transparent to-transparent mix-blend-soft-light" aria-hidden />
+                </div>
+              </div>
+            </div>
           </div>
-
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-            <CTAButton
-              href={heroTelegramLink}
-              variant="glow"
-              className="px-8 py-3.5 text-lg shadow-[0_22px_70px_rgba(236,72,153,0.32)]"
-            >
-              {hero.ctaLabel}
-            </CTAButton>
-          </div>
-
-          {hero.note && (
-            <p className="text-sm text-white/70 sm:max-w-md">{hero.note}</p>
-          )}
         </header>
 
         <section className="space-y-8">
