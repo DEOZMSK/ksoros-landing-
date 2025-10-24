@@ -34,8 +34,11 @@ export default function HomePage() {
   const { hero, features, chatPreview, flow, closingNote, telegramLink } = siteConfig;
   const defaultTelegramMessage = "Привет! А какие ресурсы у вас есть?";
   const heroTelegramLink = createTelegramLinkWithText(telegramLink, defaultTelegramMessage);
-  const flowTelegramLink = createTelegramLinkWithText(telegramLink, defaultTelegramMessage);
   const heroSubheadline = hero.subheadline.trim();
+  const flowTitle = flow.title.trim();
+  const flowDescription = flow.description.trim();
+  const flowSteps = (flow.steps ?? []).map((step) => step.trim()).filter(Boolean);
+  const hasFlowContent = Boolean(flowTitle || flowDescription || flowSteps.length > 0);
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-gradient-to-br from-[#040414] via-[#120f24] to-[#241538] text-white">
@@ -205,44 +208,40 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="relative overflow-hidden rounded-[32px] border border-white/15 bg-gradient-to-br from-white/20 via-white/10 to-white/5 px-6 py-10 shadow-[0_28px_78px_rgba(18,8,40,0.6)] backdrop-blur-2xl sm:px-10">
-          <div className="pointer-events-none absolute inset-0">
-            <div className="absolute -top-32 right-6 h-52 w-52 rounded-full bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.45),transparent_60%)] opacity-70 blur-3xl animate-soft-pulse" />
-            <div className="absolute bottom-[-3rem] left-1/2 h-60 w-60 -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(244,114,182,0.4),transparent_68%)] opacity-65 blur-3xl animate-float" />
-            <div className="absolute inset-0 bg-[linear-gradient(130deg,rgba(255,255,255,0.1),transparent_60%)] opacity-45" />
-          </div>
-
-          <div className="relative z-10 space-y-6">
-            {flow.title && (
-              <h2 className="text-3xl font-semibold leading-snug text-white md:text-[2.25rem]">
-                {flow.title}
-              </h2>
-            )}
-            {flow.description && (
-              <p className="max-w-2xl text-base text-white/80 md:text-lg">
-                {flow.description}
-              </p>
-            )}
-            {flow.steps && flow.steps.length > 0 && (
-              <ol className="space-y-4">
-                {flow.steps.map((step, index) => (
-                  <li key={step} className="flex items-start gap-4">
-                    <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10 text-base font-medium text-white/85">
-                      {index + 1}
-                    </span>
-                    <p className="text-base text-white/80 md:text-lg">{step}</p>
-                  </li>
-                ))}
-              </ol>
-            )}
-            <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center">
-              <CTAButton href={flowTelegramLink} variant="glow" className="px-8 py-3.5 text-lg">
-                {flow.ctaLabel}
-              </CTAButton>
-              {flow.hint && <span className="text-sm text-white/75">{flow.hint}</span>}
+        {hasFlowContent && (
+          <section className="relative overflow-hidden rounded-[32px] border border-white/15 bg-gradient-to-br from-white/20 via-white/10 to-white/5 px-6 py-10 shadow-[0_28px_78px_rgba(18,8,40,0.6)] backdrop-blur-2xl sm:px-10">
+            <div className="pointer-events-none absolute inset-0">
+              <div className="absolute -top-32 right-6 h-52 w-52 rounded-full bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.45),transparent_60%)] opacity-70 blur-3xl animate-soft-pulse" />
+              <div className="absolute bottom-[-3rem] left-1/2 h-60 w-60 -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(244,114,182,0.4),transparent_68%)] opacity-65 blur-3xl animate-float" />
+              <div className="absolute inset-0 bg-[linear-gradient(130deg,rgba(255,255,255,0.1),transparent_60%)] opacity-45" />
             </div>
-          </div>
-        </section>
+
+            <div className="relative z-10 space-y-6">
+              {flowTitle && (
+                <h2 className="text-3xl font-semibold leading-snug text-white md:text-[2.25rem]">
+                  {flowTitle}
+                </h2>
+              )}
+              {flowDescription && (
+                <p className="max-w-2xl text-base text-white/80 md:text-lg">
+                  {flowDescription}
+                </p>
+              )}
+              {flowSteps.length > 0 && (
+                <ol className="space-y-4">
+                  {flowSteps.map((step, index) => (
+                    <li key={`${step}-${index}`} className="flex items-start gap-4">
+                      <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10 text-base font-medium text-white/85">
+                        {index + 1}
+                      </span>
+                      <p className="text-base text-white/80 md:text-lg">{step}</p>
+                    </li>
+                  ))}
+                </ol>
+              )}
+            </div>
+          </section>
+        )}
 
         {closingNote && (
           <footer className="border-t border-white/15 pt-6 text-center text-sm text-white/70">
