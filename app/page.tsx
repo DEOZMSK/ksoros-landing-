@@ -235,12 +235,6 @@ export default function HomePage() {
                 ))}
               </ol>
             )}
-            <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center">
-              <CTAButton href={flowTelegramLink} variant="glow" className="px-8 py-3.5 text-lg">
-                {flow.ctaLabel}
-              </CTAButton>
-              {flow.hint && <span className="text-sm text-white/75">{flow.hint}</span>}
-            </div>
           </div>
         </section>
 
