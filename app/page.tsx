@@ -82,8 +82,8 @@ export default function HomePage() {
         />
       </div>
 
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col justify-between gap-6 px-6 pb-8 pt-0 sm:gap-16 sm:px-10 sm:py-16 lg:px-12">
-        <header className="relative flex min-h-screen flex-col justify-end overflow-visible pb-12 pt-24 sm:min-h-[660px] sm:justify-center sm:pb-24 sm:pt-12">
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col gap-0 px-6 pb-8 pt-0 sm:gap-0 sm:px-10 sm:py-16 lg:px-12">
+        <header className="relative flex flex-col overflow-visible pb-0 pt-24 sm:pb-0 sm:pt-12">
           <div
             aria-hidden
             className="pointer-events-none absolute left-1/2 top-6 -z-10 h-[520px] w-[min(95vw,600px)] -translate-x-1/2 rounded-[55%] bg-[radial-gradient(circle_at_top,rgba(244,114,182,0.28),transparent_74%)] blur-3xl"
@@ -209,7 +209,7 @@ export default function HomePage() {
         </section>
 
         {hasFlowContent && (
-          <section className="relative overflow-hidden rounded-[32px] border border-white/15 bg-gradient-to-br from-white/20 via-white/10 to-white/5 px-6 py-10 shadow-[0_28px_78px_rgba(18,8,40,0.6)] backdrop-blur-2xl sm:px-10">
+          <section className="relative mt-12 overflow-hidden rounded-[32px] border border-white/15 bg-gradient-to-br from-white/20 via-white/10 to-white/5 px-6 py-10 shadow-[0_28px_78px_rgba(18,8,40,0.6)] backdrop-blur-2xl sm:mt-16 sm:px-10">
             <div className="pointer-events-none absolute inset-0">
               <div className="absolute -top-32 right-6 h-52 w-52 rounded-full bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.45),transparent_60%)] opacity-70 blur-3xl animate-soft-pulse" />
               <div className="absolute bottom-[-3rem] left-1/2 h-60 w-60 -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(244,114,182,0.4),transparent_68%)] opacity-65 blur-3xl animate-float" />
