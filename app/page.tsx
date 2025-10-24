@@ -86,14 +86,17 @@ export default function HomePage() {
             className="pointer-events-none absolute left-1/2 top-6 -z-10 h-[520px] w-[min(95vw,600px)] -translate-x-1/2 rounded-[55%] bg-[radial-gradient(circle_at_top,rgba(244,114,182,0.28),transparent_74%)] blur-3xl"
           />
 
-          <div className="pointer-events-none absolute top-0 right-[-1.5rem] -z-10 h-screen w-auto md:hidden">
+          <div
+            className="pointer-events-none absolute left-1/2 top-0 -z-10 flex w-screen -translate-x-1/2 justify-center md:hidden"
+            style={{ height: "min(100vh, calc(100vw * 1.5))" }}
+          >
             <Image
               src="/photo.png"
               alt="Портрет Артемия Ксороса"
               priority
               width={960}
               height={1440}
-              className="h-full w-auto object-cover object-[top_right]"
+              className="h-full w-full origin-top transform-gpu object-contain object-top"
             />
           </div>
 
@@ -139,7 +142,7 @@ export default function HomePage() {
                   width={960}
                   height={1440}
                   sizes="(min-width: 1280px) 520px, (min-width: 768px) 460px, (min-width: 640px) 420px, 88vw"
-                  className="w-full rounded-[36px] object-cover object-top"
+                  className="w-full origin-top scale-[0.97] transform-gpu rounded-[36px] object-cover object-top"
                 />
               </div>
             </div>
