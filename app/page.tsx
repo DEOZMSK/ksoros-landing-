@@ -160,13 +160,15 @@ export default function HomePage() {
                   <div className="absolute inset-0 -z-10 opacity-0 transition duration-300 group-hover:opacity-100" aria-hidden>
                     <div className="h-full w-full bg-[radial-gradient(circle_at_top,rgba(244,114,182,0.32),transparent_70%)] animate-soft-pulse" />
                   </div>
-                  <div className="flex items-start gap-3">
-                    <span className="text-2xl md:text-3xl">{feature.icon}</span>
-                    <h2 className="text-lg font-semibold leading-snug text-white md:text-xl">
+                  <div className="flex items-start gap-4">
+                    <span className="text-3xl md:text-4xl">{feature.icon}</span>
+                    <h2 className="text-lg font-bold tracking-[0.01em] text-white md:text-[1.35rem]">
                       {feature.title}
                     </h2>
                   </div>
-                  <p className="text-sm text-white/75 md:text-base">{feature.description}</p>
+                  <p className="text-sm font-medium leading-relaxed tracking-[0.015em] text-white/80 md:text-base">
+                    {feature.description}
+                  </p>
                 </article>
               ))}
             </div>
