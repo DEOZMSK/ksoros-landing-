@@ -93,7 +93,7 @@ export default function HomePage() {
               priority
               width={960}
               height={1440}
-              className="h-full w-auto object-cover object-[top_right]"
+              className="h-full w-auto origin-top-right scale-[0.94] transform-gpu object-cover object-[center_top]"
             />
           </div>
 
@@ -139,7 +139,7 @@ export default function HomePage() {
                   width={960}
                   height={1440}
                   sizes="(min-width: 1280px) 520px, (min-width: 768px) 460px, (min-width: 640px) 420px, 88vw"
-                  className="w-full rounded-[36px] object-cover object-top"
+                  className="w-full origin-top scale-[0.97] transform-gpu rounded-[36px] object-cover object-top"
                 />
               </div>
             </div>
