@@ -33,11 +33,16 @@ module.exports = {
           "0%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-12px)" },
           "100%": { transform: "translateY(0px)" }
+        },
+        "hero-shimmer": {
+          "0%, 100%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" }
         }
       },
       animation: {
         "soft-pulse": "soft-pulse 14s ease-in-out infinite",
-        float: "float 18s ease-in-out infinite"
+        float: "float 18s ease-in-out infinite",
+        "hero-shimmer": "hero-shimmer 8s ease-in-out infinite"
       }
     }
   },
