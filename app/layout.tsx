@@ -1,18 +1,17 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Yeseva_One } from "next/font/google";
+import { Manrope, Unbounded } from "next/font/google";
 import "./globals.css";
 
-const plusJakartaSans = Plus_Jakarta_Sans({
-  subsets: ["latin", "cyrillic-ext"],
+const manrope = Manrope({
+  subsets: ["latin", "cyrillic"],
   weight: ["300", "400", "500", "600", "700", "800"],
   display: "swap",
   variable: "--font-body"
 });
 
-const yesevaOne = Yeseva_One({
-  subsets: ["latin", "cyrillic-ext"],
-  weight: "400",
-  style: ["normal"],
+const unbounded = Unbounded({
+  subsets: ["latin", "cyrillic"],
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
   variable: "--font-heading"
 });
@@ -49,7 +48,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ru" className={`${plusJakartaSans.variable} ${yesevaOne.variable}`}>
+    <html lang="ru" className={`${manrope.variable} ${unbounded.variable}`}>
       <body className="bg-background">
         {children}
       </body>
