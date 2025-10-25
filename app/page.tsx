@@ -112,7 +112,15 @@ export default function HomePage() {
 
               <div className="mt-3 max-w-xl drop-shadow-[0_12px_32px_rgba(0,0,0,0.18)] sm:mt-6">
                 <h1 className="text-3xl font-semibold leading-tight tracking-tight text-neutral-900 md:text-[2.85rem] lg:text-[3.15rem] lg:leading-[1.08]">
-                  {hero.headline}
+                  <span className="relative inline-flex">
+                    <span className="animate-hero-shimmer bg-[linear-gradient(120deg,#080808,#757575,#f5f5f5,#757575,#080808)] bg-[length:220%_220%] bg-clip-text text-transparent drop-shadow-[0_8px_22px_rgba(0,0,0,0.4)]">
+                      {hero.headline}
+                    </span>
+                    <span
+                      aria-hidden
+                      className="pointer-events-none absolute inset-0 -z-10 rounded-[28px] bg-[radial-gradient(circle,#2f2f2f55,transparent_68%)] blur-[22px]"
+                    />
+                  </span>
                 </h1>
                 {heroSubheadline && (
                   <p className="mt-5 text-lg text-neutral-600 md:text-xl">
