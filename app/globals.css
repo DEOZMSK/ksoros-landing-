@@ -7,7 +7,9 @@
 }
 
 body {
-  font-family: var(--font-body), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: var(--font-manrope), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
   @apply bg-background text-neutral-900 antialiased;
 }
 
@@ -17,7 +19,9 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-heading), var(--font-body), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: var(--font-manrope), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.015em;
 }
 
 a {
@@ -33,4 +37,46 @@ button,
 textarea,
 select {
   font: inherit;
+}
+
+:root {
+  --surface-glass: rgba(255, 255, 255, 0.24);
+}
+
+.glass-panel {
+  background: var(--surface-glass);
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(18px);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.8s ease forwards;
+}
+
+@keyframes floatPulse {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-floating-spot {
+  animation: floatPulse 6s ease-in-out infinite;
 }
