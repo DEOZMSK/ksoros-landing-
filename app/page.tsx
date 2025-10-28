@@ -114,14 +114,15 @@ export default function HomePage() {
             />
           </div>
 
-          <div className="relative z-10 flex w-full flex-col gap-8 sm:gap-12 md:grid md:grid-cols-[1.02fr_1fr] md:items-center">
+          <div className="relative z-10 flex w-full flex-col gap-10 sm:gap-12 md:grid md:grid-cols-[1.02fr_1fr] md:items-center">
             <div className="relative flex flex-col items-center text-center md:items-start md:text-left">
               <div
-                className="pointer-events-none absolute inset-x-[-1.5rem] bottom-[-4rem] top-[-5rem] -z-10 rounded-[36px] bg-[radial-gradient(circle_at_top,rgba(0,0,0,0.16),transparent_70%)] backdrop-blur-[2px] md:hidden"
+                className="pointer-events-none absolute inset-x-[-1.75rem] bottom-[-4.5rem] top-[-5.5rem] -z-10 rounded-[42px] bg-[radial-gradient(circle_at_top,rgba(0,0,0,0.24),transparent_72%)] backdrop-blur-md md:hidden"
                 aria-hidden
               />
-              <div className="mt-3 max-w-xl drop-shadow-[0_12px_32px_rgba(0,0,0,0.18)] sm:mt-0">
-                <h1 className="text-3xl font-semibold leading-tight tracking-tight text-neutral-900 md:text-[3.1rem] md:leading-[1.05]">
+              <div className="absolute inset-x-[-1.25rem] top-[-2.75rem] -z-10 h-[120%] rounded-[38px] bg-gradient-to-b from-black/65 via-black/55 to-black/20 shadow-[0_45px_120px_rgba(0,0,0,0.4)] md:hidden" />
+              <div className="mt-3 max-w-xl drop-shadow-[0_14px_38px_rgba(0,0,0,0.32)] sm:mt-0 md:drop-shadow-none">
+                <h1 className="text-3xl font-semibold leading-tight tracking-tight text-white drop-shadow-[0_16px_36px_rgba(0,0,0,0.55)] md:text-[3.1rem] md:leading-[1.05] md:text-neutral-900 md:drop-shadow-none">
                   <span className="relative inline-flex">
                     <span className="animate-hero-shimmer bg-[linear-gradient(120deg,#080808,#757575,#f5f5f5,#757575,#080808)] bg-[length:220%_220%] bg-clip-text text-transparent drop-shadow-[0_8px_22px_rgba(0,0,0,0.4)]">
                       {hero.title}
@@ -132,10 +133,10 @@ export default function HomePage() {
                     />
                   </span>
                 </h1>
-                <p className="mt-4 text-lg font-medium leading-relaxed text-neutral-700 sm:text-xl">
+                <p className="mt-4 text-lg font-medium leading-relaxed text-white drop-shadow-[0_12px_28px_rgba(0,0,0,0.55)] sm:text-xl md:text-neutral-700 md:drop-shadow-none">
                   {hero.subtitle}
                 </p>
-                <div className="mt-6 space-y-4 text-base leading-relaxed text-neutral-600 sm:text-lg">
+                <div className="mt-6 space-y-4 text-base leading-relaxed text-white/95 drop-shadow-[0_10px_28px_rgba(0,0,0,0.55)] sm:text-lg md:text-neutral-600 md:drop-shadow-none">
                   {hero.paragraphs.map((paragraph) => (
                     <p key={paragraph} className="text-pretty">
                       {paragraph}
@@ -171,66 +172,112 @@ export default function HomePage() {
           </div>
         </header>
 
-        <section id="what" className="grid gap-6 rounded-[32px] border border-black/5 bg-white/80 p-8 shadow-[0_18px_46px_rgba(0,0,0,0.08)] backdrop-blur-sm sm:p-12">
-          {what.map((paragraph) => (
-            <p key={paragraph} className="text-lg font-medium leading-relaxed text-neutral-700 sm:text-xl">
-              <TextWithBreaks text={paragraph} />
-            </p>
-          ))}
-        </section>
-
-        <section id="how" className="relative overflow-hidden rounded-[32px] border border-black/5 bg-gradient-to-br from-white via-[#f5f5f5] to-[#ededed] px-8 py-10 shadow-[0_24px_64px_rgba(0,0,0,0.08)] backdrop-blur-sm sm:px-12">
-          <div className="pointer-events-none absolute inset-0 opacity-70" aria-hidden>
-            <div className="absolute -top-24 right-0 h-44 w-44 rounded-full bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.08),transparent_68%)] blur-3xl" />
-            <div className="absolute bottom-[-4rem] left-[-3rem] h-56 w-56 rounded-full bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.1),transparent_72%)] blur-3xl" />
-          </div>
-          <div className="relative z-10 space-y-6">
-            <div className="space-y-4 text-lg leading-relaxed text-neutral-700 sm:text-xl">
-              {how.map((step) => (
-                <p key={step} className="text-pretty">
-                  {step}
+        <section
+          id="what"
+          className="relative overflow-hidden rounded-[38px] border border-white/20 bg-white/70 p-9 shadow-[0_28px_60px_rgba(0,0,0,0.12)] backdrop-blur-xl before:absolute before:inset-0 before:-z-10 before:bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.12),transparent_55%)] before:content-[''] after:absolute after:inset-x-10 after:top-0 after:-z-10 after:h-[1px] after:bg-gradient-to-r after:from-transparent after:via-black/20 after:to-transparent after:content-[''] sm:p-14"
+        >
+          <div className="relative grid gap-6 text-left text-lg font-medium leading-relaxed text-neutral-800 sm:text-xl">
+            {what.map((paragraph) => (
+              <div
+                key={paragraph}
+                className="rounded-[26px] border border-black/5 bg-white/90 px-5 py-4 shadow-[0_12px_32px_rgba(0,0,0,0.08)] md:px-6 md:py-5"
+              >
+                <p className="text-pretty text-neutral-800">
+                  <TextWithBreaks text={paragraph} />
                 </p>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </section>
 
-        <section id="cta" className="flex flex-col gap-8 rounded-[32px] border border-black/5 bg-white/85 p-8 text-center shadow-[0_24px_64px_rgba(0,0,0,0.08)] backdrop-blur-sm sm:p-12 md:text-left">
-          <div className="space-y-5 text-lg leading-relaxed text-neutral-700 sm:text-xl">
+        <section
+          id="how"
+          className="relative overflow-hidden rounded-[42px] border border-white/30 bg-gradient-to-br from-white/85 via-[#f4f4f4]/90 to-[#ececec]/95 px-8 py-12 shadow-[0_36px_80px_rgba(0,0,0,0.12)] backdrop-blur-xl sm:px-16"
+        >
+          <div className="pointer-events-none absolute inset-0 opacity-70" aria-hidden>
+            <div className="absolute -top-20 right-6 h-48 w-48 rounded-full bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.14),transparent_68%)] blur-3xl" />
+            <div className="absolute bottom-[-5rem] left-[-3rem] h-72 w-72 rounded-full bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.1),transparent_70%)] blur-3xl" />
+          </div>
+          <div className="relative z-10 grid gap-5 sm:grid-cols-2 sm:gap-8">
+            {how.map((step, index) => (
+              <article
+                key={step}
+                className="group relative overflow-hidden rounded-[30px] border border-black/5 bg-white/90 p-6 shadow-[0_18px_50px_rgba(0,0,0,0.12)] transition-transform duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_30px_70px_rgba(0,0,0,0.16)]"
+              >
+                <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.08),transparent_72%)] blur-xl" />
+                <div className="relative z-10 flex items-start gap-4">
+                  <span className="flex h-12 w-12 flex-none items-center justify-center rounded-[18px] border border-black/10 bg-gradient-to-br from-[#111111] via-[#222222] to-[#444444] text-lg font-semibold text-white shadow-[0_14px_28px_rgba(0,0,0,0.28)]">
+                    {index + 1}
+                  </span>
+                  <p className="text-pretty text-base leading-relaxed text-neutral-800 sm:text-lg">
+                    {step}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section
+          id="cta"
+          className="relative flex flex-col gap-9 overflow-hidden rounded-[40px] border border-white/30 bg-gradient-to-br from-[#111111] via-[#1d1d1d] to-[#2e2e2e] p-8 text-center shadow-[0_36px_90px_rgba(0,0,0,0.32)] sm:p-14 md:text-left"
+        >
+          <div className="pointer-events-none absolute inset-0 opacity-70" aria-hidden>
+            <div className="absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.12),transparent_74%)] blur-3xl" />
+            <div className="absolute bottom-[-5rem] right-[-3rem] h-80 w-80 rounded-full bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.18),transparent_78%)] blur-3xl" />
+          </div>
+          <div className="relative z-10 space-y-5 text-lg leading-relaxed text-white/90 sm:text-xl">
             {cta.paragraphs.map((paragraph) => (
               <p key={paragraph} className="text-pretty">
                 {paragraph}
               </p>
             ))}
           </div>
-          <div className="flex flex-col items-center justify-center gap-4 md:flex-row md:justify-start">
+          <div className="relative z-10 flex flex-col items-center justify-center gap-4 md:flex-row md:justify-start">
             <CTAButton
               href={telegramLinkWithText}
               variant="glow"
-              className="px-8 py-3.5 text-lg shadow-[0_22px_70px_rgba(0,0,0,0.18)]"
+              className="px-10 py-3.5 text-lg shadow-[0_22px_70px_rgba(0,0,0,0.3)]"
             >
               {cta.ctaLabel}
             </CTAButton>
           </div>
         </section>
 
-        <section id="faq" className="grid gap-6 rounded-[32px] border border-black/5 bg-white/80 p-8 shadow-[0_18px_46px_rgba(0,0,0,0.08)] backdrop-blur-sm sm:grid-cols-2 sm:p-12">
+        <section
+          id="faq"
+          className="relative grid gap-6 rounded-[42px] border border-white/25 bg-white/80 p-9 shadow-[0_30px_80px_rgba(0,0,0,0.12)] backdrop-blur-xl sm:grid-cols-2 sm:gap-8 sm:p-14"
+        >
+          <div className="pointer-events-none absolute inset-0 opacity-80" aria-hidden>
+            <div className="absolute -top-16 left-12 h-48 w-48 rounded-full bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.1),transparent_72%)] blur-3xl" />
+            <div className="absolute bottom-[-4rem] right-10 h-56 w-56 rounded-full bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.08),transparent_72%)] blur-3xl" />
+          </div>
           {faq.map((item) => (
-            <article key={item.question} className="space-y-2 rounded-2xl border border-black/5 bg-white/80 p-5 text-left shadow-[0_12px_32px_rgba(0,0,0,0.08)]">
-              <h3 className="text-lg font-semibold text-neutral-900 sm:text-xl">{item.question}</h3>
-              <p className="text-base leading-relaxed text-neutral-600 sm:text-lg">{item.answer}</p>
+            <article
+              key={item.question}
+              className="relative overflow-hidden rounded-[28px] border border-black/5 bg-white/90 p-6 shadow-[0_18px_48px_rgba(0,0,0,0.12)]"
+            >
+              <div className="absolute -right-6 -top-10 h-28 w-28 rounded-full bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.08),transparent_74%)] blur-2xl" />
+              <div className="relative z-10 space-y-2">
+                <h3 className="text-lg font-semibold text-neutral-900 sm:text-xl">{item.question}</h3>
+                <p className="text-base leading-relaxed text-neutral-700 sm:text-lg">{item.answer}</p>
+              </div>
             </article>
           ))}
         </section>
 
-        <footer className="flex flex-col items-center gap-6 rounded-[32px] border border-black/5 bg-white/85 p-8 text-center shadow-[0_18px_46px_rgba(0,0,0,0.08)] backdrop-blur-sm sm:flex-row sm:justify-between sm:p-10 sm:text-left">
-          <p className="text-base leading-relaxed text-neutral-700 sm:text-lg">
+        <footer className="relative flex flex-col items-center gap-7 overflow-hidden rounded-[40px] border border-white/25 bg-gradient-to-br from-white/85 via-white/75 to-white/65 p-9 text-center shadow-[0_30px_80px_rgba(0,0,0,0.12)] backdrop-blur-xl sm:flex-row sm:justify-between sm:p-12 sm:text-left">
+          <div className="pointer-events-none absolute inset-0 opacity-80" aria-hidden>
+            <div className="absolute left-8 top-8 h-36 w-36 rounded-full bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.12),transparent_72%)] blur-2xl" />
+            <div className="absolute bottom-[-4rem] right-6 h-48 w-48 rounded-full bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.08),transparent_70%)] blur-3xl" />
+          </div>
+          <p className="relative z-10 text-base leading-relaxed text-neutral-800 sm:text-lg">
             <TextWithBreaks text={footer.text} />
           </p>
           <CTAButton
             href={telegramLinkWithText}
             variant="glow"
-            className="px-8 py-3.5 text-base sm:text-lg shadow-[0_22px_70px_rgba(0,0,0,0.18)]"
+            className="relative z-10 px-9 py-3.5 text-base sm:text-lg shadow-[0_22px_70px_rgba(0,0,0,0.22)]"
           >
             {footer.ctaLabel}
           </CTAButton>
