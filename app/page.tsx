@@ -30,19 +30,30 @@ const createTelegramLinkWithText = (baseLink: string, text: string) => {
   }
 };
 
+const TextWithBreaks = ({ text }: { text: string }) => {
+  const lines = text.split("\n");
+  return (
+    <>
+      {lines.map((line, index) => (
+        <span key={`${line}-${index}`}>
+          {line}
+          {index < lines.length - 1 && <br />}
+        </span>
+      ))}
+    </>
+  );
+};
+
 export default function HomePage() {
-  const { hero, features, chatPreview, flow, closingNote, telegramLink } = siteConfig;
-  const defaultTelegramMessage = "Привет! А какие ресурсы у вас есть?";
-  const heroTelegramLink = createTelegramLinkWithText(telegramLink, defaultTelegramMessage);
-  const heroSubheadline = hero.subheadline.trim();
-  const flowTitle = flow.title.trim();
-  const flowDescription = flow.description.trim();
-  const flowSteps = (flow.steps ?? []).map((step) => step.trim()).filter(Boolean);
-  const hasFlowContent = Boolean(flowTitle || flowDescription || flowSteps.length > 0);
+  const { hero, what, how, cta, faq, footer, telegramLink } = siteConfig;
+  const defaultTelegramMessage = "Привет! Хочу увидеть схему запуска без бюджета.";
+  const telegramLinkWithText = createTelegramLinkWithText(
+    telegramLink,
+    defaultTelegramMessage
+  );
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-gradient-to-br from-[#f9f9f7] via-[#f2f2f0] to-[#e8e8e6] text-neutral-900">
-      {/* Фон с цифровой глубиной */}
       <div className="pointer-events-none absolute inset-0">
         <div
           aria-hidden
@@ -82,8 +93,8 @@ export default function HomePage() {
         />
       </div>
 
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col justify-between gap-6 px-6 pb-8 pt-0 sm:gap-16 sm:px-10 sm:py-16 lg:px-12">
-        <header className="relative flex min-h-screen flex-col justify-end overflow-visible pb-12 pt-24 sm:min-h-[660px] sm:justify-center sm:pb-24 sm:pt-12">
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col gap-10 px-6 pb-12 pt-0 sm:gap-16 sm:px-10 sm:py-16 lg:px-12">
+        <header className="relative flex min-h-screen flex-col justify-end overflow-visible pb-16 pt-24 sm:min-h-[640px] sm:justify-center sm:pb-24 sm:pt-12">
           <div
             aria-hidden
             className="pointer-events-none absolute left-1/2 top-6 -z-10 h-[520px] w-[min(95vw,600px)] -translate-x-1/2 rounded-[55%] bg-[radial-gradient(circle_at_top,rgba(0,0,0,0.12),transparent_76%)] blur-3xl"
@@ -103,18 +114,17 @@ export default function HomePage() {
             />
           </div>
 
-          <div className="relative z-10 flex w-full flex-col gap-5 sm:gap-10 md:grid md:grid-cols-[1.02fr_1fr] md:items-center">
+          <div className="relative z-10 flex w-full flex-col gap-8 sm:gap-12 md:grid md:grid-cols-[1.02fr_1fr] md:items-center">
             <div className="relative flex flex-col items-center text-center md:items-start md:text-left">
-              <div className="pointer-events-none absolute inset-x-[-1.5rem] bottom-[-4rem] top-[-5rem] -z-10 rounded-[36px] bg-[radial-gradient(circle_at_top,rgba(0,0,0,0.16),transparent_70%)] backdrop-blur-[2px] md:hidden" aria-hidden />
-              <span className="inline-flex items-center gap-2 rounded-full border border-neutral-900/10 bg-white/80 px-4 py-1 text-xs uppercase tracking-[0.32em] text-neutral-600">
-                {hero.eyebrow}
-              </span>
-
-              <div className="mt-3 max-w-xl drop-shadow-[0_12px_32px_rgba(0,0,0,0.18)] sm:mt-6">
-                <h1 className="text-3xl font-semibold leading-tight tracking-tight text-neutral-900 md:text-[2.85rem] lg:text-[3.15rem] lg:leading-[1.08]">
+              <div
+                className="pointer-events-none absolute inset-x-[-1.5rem] bottom-[-4rem] top-[-5rem] -z-10 rounded-[36px] bg-[radial-gradient(circle_at_top,rgba(0,0,0,0.16),transparent_70%)] backdrop-blur-[2px] md:hidden"
+                aria-hidden
+              />
+              <div className="mt-3 max-w-xl drop-shadow-[0_12px_32px_rgba(0,0,0,0.18)] sm:mt-0">
+                <h1 className="text-3xl font-semibold leading-tight tracking-tight text-neutral-900 md:text-[3.1rem] md:leading-[1.05]">
                   <span className="relative inline-flex">
                     <span className="animate-hero-shimmer bg-[linear-gradient(120deg,#080808,#757575,#f5f5f5,#757575,#080808)] bg-[length:220%_220%] bg-clip-text text-transparent drop-shadow-[0_8px_22px_rgba(0,0,0,0.4)]">
-                      {hero.headline}
+                      {hero.title}
                     </span>
                     <span
                       aria-hidden
@@ -122,25 +132,26 @@ export default function HomePage() {
                     />
                   </span>
                 </h1>
-                {heroSubheadline && (
-                  <p className="mt-5 text-lg text-neutral-600 md:text-xl">
-                    {heroSubheadline}
-                  </p>
-                )}
+                <p className="mt-4 text-lg font-medium leading-relaxed text-neutral-700 sm:text-xl">
+                  {hero.subtitle}
+                </p>
+                <div className="mt-6 space-y-4 text-base leading-relaxed text-neutral-600 sm:text-lg">
+                  {hero.paragraphs.map((paragraph) => (
+                    <p key={paragraph} className="text-pretty">
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
               </div>
 
-              <div className="mt-5 flex w-full flex-col items-center gap-4 text-center sm:mt-10 sm:flex-row sm:items-center sm:justify-start sm:text-left">
+              <div className="mt-8 flex w-full flex-col items-center gap-4 text-center sm:flex-row sm:items-center sm:justify-start sm:text-left">
                 <CTAButton
-                  href={heroTelegramLink}
+                  href={telegramLinkWithText}
                   variant="glow"
                   className="px-8 py-3.5 text-lg shadow-[0_22px_70px_rgba(0,0,0,0.18)]"
                 >
                   {hero.ctaLabel}
                 </CTAButton>
-
-                {hero.note && (
-                  <p className="max-w-md text-sm text-neutral-500 sm:text-left">{hero.note}</p>
-                )}
               </div>
             </div>
 
@@ -160,102 +171,70 @@ export default function HomePage() {
           </div>
         </header>
 
-        <section className="space-y-6 sm:space-y-8">
-          <div className="grid gap-5 lg:grid-cols-[minmax(0,2.2fr)_minmax(0,1fr)]">
-            <div className="grid gap-4 sm:grid-cols-2">
-              {features.map((feature) => (
-                <article
-                  key={feature.title}
-                  className="group relative flex h-full flex-col gap-3 overflow-hidden rounded-3xl border border-black/5 bg-white/80 p-5 shadow-[0_18px_46px_rgba(0,0,0,0.08)] backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-black/10 hover:bg-white"
-                >
-                  <div className="absolute inset-0 -z-10 opacity-0 transition duration-300 group-hover:opacity-100" aria-hidden>
-                    <div className="h-full w-full bg-[radial-gradient(circle_at_top,rgba(0,0,0,0.16),transparent_70%)] animate-soft-pulse" />
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <span className="text-3xl md:text-4xl">{feature.icon}</span>
-                    <h2 className="text-lg font-bold tracking-[0.01em] text-neutral-900 md:text-[1.35rem]">
-                      {feature.title}
-                    </h2>
-                  </div>
-                  <p className="text-sm font-medium leading-relaxed tracking-[0.015em] text-neutral-600 md:text-base">
-                    {feature.description}
-                  </p>
-                </article>
+        <section id="what" className="grid gap-6 rounded-[32px] border border-black/5 bg-white/80 p-8 shadow-[0_18px_46px_rgba(0,0,0,0.08)] backdrop-blur-sm sm:p-12">
+          {what.map((paragraph) => (
+            <p key={paragraph} className="text-lg font-medium leading-relaxed text-neutral-700 sm:text-xl">
+              <TextWithBreaks text={paragraph} />
+            </p>
+          ))}
+        </section>
+
+        <section id="how" className="relative overflow-hidden rounded-[32px] border border-black/5 bg-gradient-to-br from-white via-[#f5f5f5] to-[#ededed] px-8 py-10 shadow-[0_24px_64px_rgba(0,0,0,0.08)] backdrop-blur-sm sm:px-12">
+          <div className="pointer-events-none absolute inset-0 opacity-70" aria-hidden>
+            <div className="absolute -top-24 right-0 h-44 w-44 rounded-full bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.08),transparent_68%)] blur-3xl" />
+            <div className="absolute bottom-[-4rem] left-[-3rem] h-56 w-56 rounded-full bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.1),transparent_72%)] blur-3xl" />
+          </div>
+          <div className="relative z-10 space-y-6">
+            <div className="space-y-4 text-lg leading-relaxed text-neutral-700 sm:text-xl">
+              {how.map((step) => (
+                <p key={step} className="text-pretty">
+                  {step}
+                </p>
               ))}
             </div>
-            <aside className="relative overflow-hidden rounded-3xl border border-black/5 bg-white/90 p-6 shadow-[0_24px_64px_rgba(0,0,0,0.08)] backdrop-blur-sm">
-              <div className="pointer-events-none absolute inset-0 opacity-80" aria-hidden>
-                <div className="absolute -top-24 right-0 h-44 w-44 rounded-full bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.08),transparent_68%)] blur-3xl" />
-                <div className="absolute bottom-[-4rem] left-[-3rem] h-56 w-56 rounded-full bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.1),transparent_72%)] blur-3xl" />
-              </div>
-              <div className="relative z-10 flex h-full flex-col gap-4">
-                <div className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.24em] text-neutral-600">
-                  <span className="inline-block h-1.5 w-1.5 rounded-full bg-neutral-900" />
-                  {chatPreview.title}
-                </div>
-                <div className="flex flex-1 flex-col gap-3 text-sm">
-                  {chatPreview.messages.map((message, index) => (
-                    <div
-                      key={`${message.sender}-${index}`}
-                      className={`flex ${message.sender === "user" ? "justify-end" : "justify-start"}`}
-                    >
-                      <div
-                        className={`max-w-[17rem] rounded-2xl border px-4 py-3 shadow-[0_14px_38px_rgba(0,0,0,0.08)] backdrop-blur-sm ${
-                          message.sender === "user"
-                            ? "border-neutral-900/10 bg-neutral-900 text-white"
-                            : "border-neutral-900/10 bg-white text-neutral-800"
-                        }`}
-                      >
-                        {message.text}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </aside>
           </div>
         </section>
 
-        {hasFlowContent && (
-          <section className="relative overflow-hidden rounded-[32px] border border-black/5 bg-gradient-to-br from-white via-[#f5f5f5] to-[#ededed] px-6 py-10 shadow-[0_28px_78px_rgba(0,0,0,0.1)] backdrop-blur-sm sm:px-10">
-            <div className="pointer-events-none absolute inset-0">
-              <div className="absolute -top-32 right-6 h-52 w-52 rounded-full bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.1),transparent_60%)] opacity-70 blur-3xl animate-soft-pulse" />
-              <div className="absolute bottom-[-3rem] left-1/2 h-60 w-60 -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.12),transparent_68%)] opacity-65 blur-3xl animate-float" />
-              <div className="absolute inset-0 bg-[linear-gradient(130deg,rgba(0,0,0,0.06),transparent_60%)] opacity-45" />
-            </div>
+        <section id="cta" className="flex flex-col gap-8 rounded-[32px] border border-black/5 bg-white/85 p-8 text-center shadow-[0_24px_64px_rgba(0,0,0,0.08)] backdrop-blur-sm sm:p-12 md:text-left">
+          <div className="space-y-5 text-lg leading-relaxed text-neutral-700 sm:text-xl">
+            {cta.paragraphs.map((paragraph) => (
+              <p key={paragraph} className="text-pretty">
+                {paragraph}
+              </p>
+            ))}
+          </div>
+          <div className="flex flex-col items-center justify-center gap-4 md:flex-row md:justify-start">
+            <CTAButton
+              href={telegramLinkWithText}
+              variant="glow"
+              className="px-8 py-3.5 text-lg shadow-[0_22px_70px_rgba(0,0,0,0.18)]"
+            >
+              {cta.ctaLabel}
+            </CTAButton>
+          </div>
+        </section>
 
-            <div className="relative z-10 space-y-6">
-              {flowTitle && (
-                <h2 className="text-3xl font-semibold leading-snug text-neutral-900 md:text-[2.25rem]">
-                  {flowTitle}
-                </h2>
-              )}
-              {flowDescription && (
-                <p className="max-w-2xl text-base text-neutral-600 md:text-lg">
-                  {flowDescription}
-                </p>
-              )}
-              {flowSteps.length > 0 && (
-                <ol className="space-y-4">
-                  {flowSteps.map((step, index) => (
-                    <li key={`${step}-${index}`} className="flex items-start gap-4">
-                      <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border border-neutral-900/10 bg-neutral-900 text-base font-medium text-white">
-                        {index + 1}
-                      </span>
-                      <p className="text-base text-neutral-600 md:text-lg">{step}</p>
-                    </li>
-                  ))}
-                </ol>
-              )}
-            </div>
-          </section>
-        )}
+        <section id="faq" className="grid gap-6 rounded-[32px] border border-black/5 bg-white/80 p-8 shadow-[0_18px_46px_rgba(0,0,0,0.08)] backdrop-blur-sm sm:grid-cols-2 sm:p-12">
+          {faq.map((item) => (
+            <article key={item.question} className="space-y-2 rounded-2xl border border-black/5 bg-white/80 p-5 text-left shadow-[0_12px_32px_rgba(0,0,0,0.08)]">
+              <h3 className="text-lg font-semibold text-neutral-900 sm:text-xl">{item.question}</h3>
+              <p className="text-base leading-relaxed text-neutral-600 sm:text-lg">{item.answer}</p>
+            </article>
+          ))}
+        </section>
 
-        {closingNote && (
-          <footer className="border-t border-black/5 pt-6 text-center text-sm text-neutral-500">
-            {closingNote}
-          </footer>
-        )}
+        <footer className="flex flex-col items-center gap-6 rounded-[32px] border border-black/5 bg-white/85 p-8 text-center shadow-[0_18px_46px_rgba(0,0,0,0.08)] backdrop-blur-sm sm:flex-row sm:justify-between sm:p-10 sm:text-left">
+          <p className="text-base leading-relaxed text-neutral-700 sm:text-lg">
+            <TextWithBreaks text={footer.text} />
+          </p>
+          <CTAButton
+            href={telegramLinkWithText}
+            variant="glow"
+            className="px-8 py-3.5 text-base sm:text-lg shadow-[0_22px_70px_rgba(0,0,0,0.18)]"
+          >
+            {footer.ctaLabel}
+          </CTAButton>
+        </footer>
       </div>
     </main>
   );
